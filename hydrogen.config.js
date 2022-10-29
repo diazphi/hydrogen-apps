@@ -2,21 +2,13 @@ import {defineConfig, CookieSessionStorage} from '@shopify/hydrogen/config';
 
 export default defineConfig({
   shopify: {
-    defaultCountryCode: 'US',
+    defaultCountryCode: 'CA',
     defaultLanguageCode: 'EN',
-    storeDomain:
-      // @ts-ignore
-      Oxygen?.env?.PUBLIC_STORE_DOMAIN || 'lynnliana-staging.myshopify.com/',
-    storefrontToken:
-      // @ts-ignore
-      Oxygen?.env?.PUBLIC_STOREFRONT_API_TOKEN ||
-      '9958ed39645c60199c67e247f6ef959c',
-    privateStorefrontToken:
-      // @ts-ignore
-      Oxygen?.env?.PRIVATE_STOREFRONT_API_TOKEN,
+    storeDomain: Oxygen.env.PUBLIC_STORE_DOMAIN,
+    storefrontToken: Oxygen.env.PUBLIC_STOREFRONT_API_TOKEN,
+    privateStorefrontToken: Oxygen.env.PRIVATE_STOREFRONT_API_TOKEN,
     storefrontApiVersion: '2022-07',
-    // @ts-ignore
-    storefrontId: Oxygen?.env?.PUBLIC_STOREFRONT_ID,
+    storefrontId: Oxygen.env.PUBLIC_STOREFRONT_ID,
   },
   session: CookieSessionStorage('__session', {
     path: '/',
